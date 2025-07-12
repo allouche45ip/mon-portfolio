@@ -1,26 +1,34 @@
-
 "use client"
+
 import { useState, useEffect } from "react"
 
 // Hook pour la position de scroll
 const useScrollPosition = () => {
   const [scrollPosition, setScrollPosition] = useState(0)
-  
+
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.scrollY)
     }
-    
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
   }, [])
-  
+
   return scrollPosition
 }
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const scrollPosition = useScrollPosition()
+  const [windowWidth, setWindowWidth] = useState(0)
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth)
+    handleResize()
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
   const navItems = [
     { name: "Home", href: "#home" },
@@ -33,30 +41,35 @@ const Header = () => {
 
   const scrollToSection = (href) => {
     const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
+    if (element) element.scrollIntoView({ behavior: "smooth" })
     setIsMenuOpen(false)
   }
 
+  // Conditions pour afficher le logo
+  const shouldShowLogo =
+    windowWidth >= 1024 || // desktop toujours
+    scrollPosition > 0      // sinon dès qu'on scroll un peu
+
   return (
-    <header 
+    <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrollPosition > 50 
-          ? "bg-gray-900/95 backdrop-blur-sm shadow-lg" 
+        scrollPosition > 50
+          ? "bg-gray-900/95 backdrop-blur-sm shadow-lg"
           : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Portfolio
-              </span>
-            </h1>
-          </div>
+          {shouldShowLogo && (
+            <div className="flex-shrink-0">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                  Portfolio
+                </span>
+              </h1>
+            </div>
+          )}
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
@@ -78,26 +91,11 @@ const Header = () => {
               className="text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900 p-2"
               aria-label="Toggle menu"
             >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isMenuOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 )}
               </svg>
             </button>

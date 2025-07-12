@@ -1,5 +1,5 @@
 import React from 'react';
-
+import image2 from "../../assets/images/entrepreneur-593378_1280.jpg";
 const AboutSection = () => {
   return (
     <section id="about" className="py-20 bg-gray-800/50">
@@ -16,7 +16,7 @@ const AboutSection = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <img 
-              src="../../../public/images/entrepreneur-593378_1280.jpg" 
+              src={image2}
               alt="About me" 
               className="rounded-lg shadow-2xl"
             />

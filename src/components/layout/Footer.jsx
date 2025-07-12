@@ -35,14 +35,14 @@ const Footer = () => {
   const socialLinks = [
     {
       name: "LinkedIn",
-      href: "https://linkedin.com/in/yourprofile",
+      href: "https://linkedin.com/in/mohamed-allouche-a4ba572b3",
       icon: Linkedin,
       color: "hover:bg-blue-600",
       description: "Professional profile",
     },
     {
       name: "GitHub",
-      href: "https://github.com/yourusername",
+      href="https://github.com/allouche45ip",
       icon: Github,
       color: "hover:bg-gray-700",
       description: "Projects and code",

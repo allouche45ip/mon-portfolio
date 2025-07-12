@@ -247,7 +247,20 @@
 
 import { useState, useEffect } from "react"
 import { ExternalLink, Github, ChevronLeft, ChevronRight, AlertCircle } from "lucide-react"
-
+import prayerImg1 from "../../assets/images/Capture d'écran 2025-05-09 234948.png"                       
+import prayerImg2 from "../../assets/images/image.png"
+import portfolioImg1 from "../../assets/images/profolio.png"
+import portfolioImg2 from "../../assets/images/aboiut.png"
+import portfolioImg3 from "../../assets/images/Capture d'écran 2025-07-11 004601.png"
+import taskImg1 from "../../assets/images/Capture d'écran 2025-05-09 235902.png"
+import taskImg2 from "../../assets/images/tttdd.png"
+import taskImg3 from "../../assets/images/eed.png"
+import dentalImg1 from "../../assets/images/Capture d'écran 2025-05-09 234433.png"
+import dentalImg2 from "../../assets/images/cdsx.png"
+import dentalImg3 from "../../assets/images/Capture d'écran 2025-05-09 234647.png"
+import dentalImg4 from "../../assets/images/dev.png"
+import stageImg1 from "../../assets/images/Capture d'écran 2025-04-20 135434.png"
+import stageImg2 from "../../assets/images/Capture d'écran 2025-04-27 152339.png"
 const ProjectsSection = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState({})
 
@@ -256,11 +269,10 @@ const ProjectsSection = () => {
        title: "Prayer Times",
        description:
          "Une application pour afficher les heures de prière islamiques avec géolocalisation et notifications",
-       images: [
-         "../../../public/images/Capture d'écran 2025-05-09 234948.png",
-         "../../../public/images/image.png",
+       images: [ prayerImg1,prayerImg2   ],
+      
         
-       ],
+      
        technologies: ["HTML", "JavaScript", "CSS",],
       
        githubLink: "https://github.com/allouche45ip/projetTIM.git",
@@ -268,10 +280,8 @@ const ProjectsSection = () => {
     {
       title: "Portfolio Website",
       description: "Un site portfolio responsive construit avec React et Tailwind CSS avec animations fluides",
-      images: [
-        "../../../public/images/profolio.png",
-        "../../../public/images/aboiut.png" ,
-        "../../../public/images/Capture d'écran 2025-07-11 004601.png"   
+      images: [portfolioImg1,portfolioImg2,portfolioImg3
+        
       ],
       technologies: ["React", "Tailwind CSS",],
        githubLink: "https://github.com/allouche45ip/projweb.git",
@@ -281,10 +291,8 @@ const ProjectsSection = () => {
        title: "Task Management App",
        description:
          "Une application collaborative de gestion de tâches avec mises à jour en temps réel et système d'équipes",
-       images: [
-         "../../../public/images/Capture d'écran 2025-05-09 235902.png",
-         "../../../public/images/tttdd.png",
-         "../../../public/images/eed.png",
+       images: [taskImg1,taskImg2,taskImg3
+        
        ],
        
     
@@ -293,11 +301,8 @@ const ProjectsSection = () => {
    {
    title: "Dental Clinic Management",
    description: "A web platform for managing a dental clinic, including appointment scheduling, patient records,",
-   images: [
-     "../../../public/images/Capture d'écran 2025-05-09 234433.png",
-     "../../../public/images/cdsx.png",
-     "../../../public/images/Capture d'écran 2025-05-09 234647.png",
-     "../../../public/images/dev.png",
+   images: [dentalImg1,dentalImg2,dentalImg3,dentalImg4
+  
    ],
    
 
@@ -309,8 +314,7 @@ const ProjectsSection = () => {
       description:
         "A web platform for managing internship requests at Algérie Poste, including application submission, validation workflow, follow-up tracking, and user management.",
     images: [
-     "../../../public/images/Capture d'écran 2025-04-20 135434.png",
-     "../../../public/images/Capture d'écran 2025-04-27 152339.png",
+     stageImg1,stageImg2
    ],
       technologies: ["React", "Tailwind CSS", "Django Rest Framework", "MySQL"],
     

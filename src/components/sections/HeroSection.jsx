@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Github, Linkedin, Mail, Phone, Download,HelpCircle  } from "lucide-react"
-
+import imagess from "../../assets/images/computer-2788918_1280.jpg";
 const HeroSection = () => {
   const [currentRole, setCurrentRole] = useState(0)
   const [isVisible, setIsVisible] = useState(true)
@@ -36,7 +36,8 @@ const HeroSection = () => {
   }, [])
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="home"       className="pt-16 scroll-mt-16 min-h-screen flex items-center justify-center relative overflow-hidden"
+>
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(56,189,248,0.1),transparent_70%)]"></div>
@@ -133,7 +134,7 @@ const HeroSection = () => {
               >
                 <div className="w-full h-full rounded-full bg-gray-800 flex items-center justify-center overflow-hidden relative">
                   <img
-                    src="../../../public/images/computer-2788918_1280.jpg"
+                    src={imagess}
                     alt="Allouche Mohamed"
                     className="w-full h-full object-cover rounded-full transition-all duration-500 group-hover:scale-110 group-hover:brightness-110"
                   />
@@ -169,7 +170,7 @@ const HeroSection = () => {
       </div>
 
       {/* Custom CSS Styles */}
-      <style jsx>{`
+      <style >{`
         @keyframes spin-slow {
           from { transform: rotate(0deg); }
           to { transform: rotate(360deg); }
