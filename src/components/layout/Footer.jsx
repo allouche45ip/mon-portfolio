@@ -16,7 +16,8 @@ import {
   User,
   Award,
   FolderOpen,
-  Coffee
+  Coffee,
+  MessageSquare 
 } from "lucide-react";
 
 const navItems = [
@@ -48,15 +49,15 @@ const Footer = () => {
       description: "Projects and code",
     },
     {
-      name: "Twitter",
-      href: "https://twitter.com/yourusername",
-      icon: Twitter,
+      name: "Messenger",
+    href: "https://m.me/mouh.all.77",
+      icon: MessageSquare ,
       color: "hover:bg-blue-400",
       description: "Tech updates",
     },
     {
       name: "Instagram",
-      href: "https://instagram.com/yourusername",
+      href: "https://instagram.com/allouchemohamed7",
       icon: Instagram,
       color: "hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500",
       description: "Lifestyle",

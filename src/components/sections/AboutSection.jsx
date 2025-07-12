@@ -24,7 +24,7 @@ const AboutSection = () => {
           <div>
             <h3 className="text-2xl font-bold text-white mb-6">Frontend Developer & Backend Developer</h3>
             <p className="text-gray-400 mb-6">
-              I’m a Software Engineering student at Algiers University 1 – Benyoucef Benkhedda,  
+              I’m a student in Information Systems and Software Engineering at Algiers University1 – Benyoucef Benkhedda,  
               and a full‑stack web developer with 2 years of experience. I deliver clean,  
                maintainable, and high‑performance code.
             </p>
