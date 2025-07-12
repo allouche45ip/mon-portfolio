@@ -42,7 +42,7 @@ const Footer = () => {
     },
     {
       name: "GitHub",
-      href="https://github.com/allouche45ip",
+       href: "https://github.com/allouche45ip", 
       icon: Github,
       color: "hover:bg-gray-700",
       description: "Projects and code",
