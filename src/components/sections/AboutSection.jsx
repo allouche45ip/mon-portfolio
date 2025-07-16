@@ -44,7 +44,7 @@ const AboutSection = () => {
               </div>
               <div className="flex items-center space-x-4">
                 <span className="text-cyan-400 font-semibold">Email:</span>
-                <span className="text-gray-300">mouhamedallouche900@gmail.com</span>
+                <span className="text-gray-300">mohamedallouche900@gmail.com</span>
               </div>
               <div className="flex items-center space-x-4">
                 <span className="text-cyan-400 font-semibold">Location:</span>

@@ -123,10 +123,10 @@ export default function ContactSection() {
                 {
                   icon: Mail,
                   title: "Email",
-                  value: "mouhamedallouche900@gmail.com",
+                  value: "mohamedallouche900@gmail.com",
                   gradient: "from-cyan-400 to-blue-500",
                   description: "Réponse sous 24h",
-                  href: "mailto:mouhamedallouche900@gmail.com",
+                  href: "mailto:mohamedallouche900@gmail.com",
                 },
                 {
                   icon: Phone,

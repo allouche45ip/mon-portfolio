@@ -76,8 +76,8 @@ const Footer = () => {
   const contactInfo = [
     {
       icon: Mail,
-      text: "mouhamedallouche900@gmail.com",
-       href: "mailto:mouhamedallouche900@gmail.com",
+      text: "mohamedallouche900@gmail.com",
+       href: "mailto:mohamedallouche900@gmail.com",
     },
     {
       icon: Phone,
