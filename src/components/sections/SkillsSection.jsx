@@ -1,12 +1,23 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
+import { Network, ShieldCheck, Terminal, MonitorCog } from "lucide-react"
 
 const SkillsSection = () => {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef(null)
 
+  // 🔵 Existing web dev skills (kept, untouched)
+  // 🟢 New networking & security skills (added below, using lucide icons since
+  //    devicon doesn't reliably cover Cisco/AD/GNS3 etc.)
   const skills = [
+    // 🟢 Networking & Security (now first)
+    { name: "Networking", level: 90, color: "from-cyan-400 to-blue-500", icon: <Network className="w-8 h-8" />, description: "TCP/IP, VLANs, Routing (OSPF, BGP)" },
+    { name: "Network Security", level: 70, color: "from-emerald-400 to-teal-500", icon: <ShieldCheck className="w-8 h-8" />, description: "Firewalls, ACLs, IDS/IPS" },
+    { name: "Linux Administration", level: 88, color: "from-gray-400 to-slate-500", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg", description: "Server Setup & Hardening" },
+    { name: "Active Directory", level: 75, color: "from-indigo-400 to-blue-600", icon: <MonitorCog className="w-8 h-8" />, description: "AD DS, GPO, Domain Admin" },
+
+    // 🔵 Web dev skills (kept, now after)
     { name: "HTML", level: 95, color: "from-orange-400 to-red-500", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", description: "Markup" },
     { name: "JavaScript", level: 90, color: "from-yellow-400 to-orange-500", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", description: "Dynamic Programming" },
     { name: "React", level: 85, color: "from-blue-400 to-cyan-500", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", description: "Frontend Framework" },
@@ -16,6 +27,21 @@ const SkillsSection = () => {
   ]
 
   const otherTechnologies = [
+    { name: "Wireshark", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wireshark/wireshark-original.svg" },
+{ name: "Cisco Packet Tracer", iconText: "🖧" },
+{ name: "GNS3", iconText: "🌐" },
+{ name: "Nmap", iconText: "🛰️" },
+{ name: "Wazuh / IDS Tools", iconText: "🛡️" },
+{ name: "Windows Server", iconText: "🪟" },
+{ name: "VirtualBox / VMware", iconText: "💻" },
+
+// Load Balancing & Proxy
+{ name: "HAProxy", iconText: "⚖️" },
+{ name: "ProxySQL", iconText: "🔄" },
+
+// Automation & Configuration Management
+{ name: "Ansible", iconText: "⚙️" },
+    // 🔵 Web dev tools (kept, now after)
     { name: "MongoDB", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
     { name: "MySQL", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
     { name: "Git", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
@@ -89,13 +115,18 @@ const SkillsSection = () => {
         </svg>
 
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <div className="p-2 bg-white rounded-full mb-1 shadow-lg">
-            <img
-              src={skill.image}
-              alt={skill.name}
-              className="w-8 h-8 object-contain"
-              onError={(e) => { e.target.style.display = "none" }}
-            />
+          <div className="p-2 bg-white rounded-full mb-1 shadow-lg flex items-center justify-center w-12 h-12">
+            {/* 🟢 Skills with an `icon` (lucide) render that; skills with an `image` (devicon) render the img */}
+            {skill.icon ? (
+              <span className="text-gray-700 [&>svg]:w-7 [&>svg]:h-7">{skill.icon}</span>
+            ) : (
+              <img
+                src={skill.image}
+                alt={skill.name}
+                className="w-8 h-8 object-contain"
+                onError={(e) => { e.target.style.display = "none" }}
+              />
+            )}
           </div>
           <span className="text-white font-bold text-sm">{progress}%</span>
         </div>
@@ -121,7 +152,7 @@ const SkillsSection = () => {
             My <span className="text-cyan-400">Skills</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto animate-fade-in-up animation-delay-200">
-            Technologies and tools I work with to create amazing experiences
+            Technologies and tools I work with across networking, security, and web development
           </p>
         </div>
 
@@ -165,8 +196,13 @@ const SkillsSection = () => {
                 className={`flex items-center gap-3 px-6 py-3 bg-gray-900/50 border border-gray-700 rounded-full text-gray-300 hover:border-cyan-400 hover:text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300 ${isVisible ? "animate-fade-in" : "opacity-0"}`}
                 style={{ animationDelay: `${(idx + skills.length) * 100}ms` }}
               >
-                <div className="w-5 h-5 bg-white rounded-full p-0.5 flex items-center justify-center">
-                  <img src={tech.image} alt={tech.name} className="w-4 h-4 object-contain" onError={(e) => { e.target.style.display = "none" }} />
+                <div className="w-5 h-5 bg-white rounded-full p-0.5 flex items-center justify-center text-xs">
+                  {/* 🟢 New tools without a devicon entry use a simple emoji glyph instead of an image */}
+                  {tech.image ? (
+                    <img src={tech.image} alt={tech.name} className="w-4 h-4 object-contain" onError={(e) => { e.target.style.display = "none" }} />
+                  ) : (
+                    <span>{tech.iconText}</span>
+                  )}
                 </div>
                 <span>{tech.name}</span>
               </div>
