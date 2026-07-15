@@ -672,14 +672,14 @@ const HeroSection = () => {
                 <span>Contact Me</span>
               </button>
 
-              <a
+              {/* <a
                 href="/cv-allouche-mohamed.pdf"
                 download
                 className="border border-cyan-400/40 text-cyan-300 px-8 py-3 rounded-full font-semibold hover:bg-cyan-400/10 transition-all duration-300 flex items-center justify-center space-x-2"
               >
                 <Download className="w-5 h-5" />
                 <span>Download CV</span>
-              </a>
+              </a> */}
             </div>
           </div>
 
